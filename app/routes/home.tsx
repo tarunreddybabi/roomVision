@@ -1,6 +1,8 @@
+import { ArrowRight, Layers } from "lucide-react";
 import type { Route } from "./+types/home";
 
 import Navbar from "components/Navbar";
+import Button from "components/ui/Button";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,7 +15,41 @@ export default function Home() {
   return (
     <div className="home">
       <Navbar />
-      <h1 className="text-3xl text-indigo-700 font-extrabold">Home</h1>
+      <section className="hero">
+        <div className="announce">
+          <div className="dot">
+            <div className="pulse"></div>
+          </div>
+          <p>Introducing RoomCraft 2.0</p>
+        </div>
+        <h1>Build beautiful spaces at the speed of thought with RoomCraft</h1>
+        <p className="subtitle">
+          RoomCraft is an AI-powered design tool that helps you create the
+          spaces of your dreams
+        </p>
+        <div className="actions">
+          <a href="#upload" className="cta">
+            Start Building <ArrowRight className="icon" />
+          </a>
+          <Button variant="outline" size="lg" className="demo">
+            Watch Demo
+          </Button>
+        </div>
+        <div id="upload" className="upload-shell">
+          <div className="grid-overlay">
+            <div className="upload-card">
+              <div className="upload-head">
+                <div className="upload-icon">
+                  <Layers className="icon" />
+                </div>
+                <h3>Upload your floor plan</h3>
+                <p>Supports JPG, PNG,formats upto 10MB</p>
+              </div>
+              <p>Upload Images</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
